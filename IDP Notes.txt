@@ -1,0 +1,42 @@
+Steps
+=====
+
+https://www.youtube.com/watch?v=jKMK4LgeSSc
+
+1) Create a self-signed certificate.
+        openssl req -x509 -newkey rsa:4096 -keyout localhost.key -out localhost.crt -subj "/CN=localhost" -addext "subjectAltName=DNS:localhost,DNS:api,DNS:identityserver,DNS:singlepageapplication,DNS:webapplication"
+	Pass phrase: password
+ 	openssl pkcs12 -export -in localhost.crt -inkey localhost.key -out localhost.pfx -name "Creating an Identity Server6 Solution"
+2) Install self-signed certificate
+	Double click on localhost.pfx
+	Current User
+	Place all certificates in the following store - Trusted Root Certification Authorities
+3) Create solution/project and add nuget packages
+	Duende.IdentityServer
+	Duende.IdentityServer.AspNetIdentity
+	Duende.IdentityServer.EntityFramework
+	Microsoft.AspNetCore.Identity.EntityFrameworkCore
+	Microsoft.EntityFrameworkCore.SqlServer
+	Microsoft.EntityFrameworkCore.Design
+4) Develop out solution
+	Add ApplicationUser.cs model
+	Add ApplicationDbContext.cs
+	Add ApplicationUserClaimsPrincipalFactory.cs
+	Configure Program.cs for Identity and SQL Server
+	Add DB connection string
+5) Create migration
+	dotnet ef migrations add "Initial Migration" -c ApplicationDbContext -o Data/Migrations/ApplicationDb
+	dotnet ef migrations add "Initial Identity Server Migration" -c ConfigurationDbContext -o Data/Migrations/IdentityServer/ConfigurationDb
+	dotnet ef migrations add "Initial Identity Server Persisted Grant Migration" -c PersistedGrantDbContext -o Data/Migrations/IdentityServer/PersistedGrantDb
+	dotnet ef database update
+6) Seed database on startup when in development mode
+7) Seed Identity Server UI
+	dotnet new -i Duende.IdentityServer.Templates
+	dotnet new isui
+
+1) Create WepApi project and add nuget packages
+	Microsoft.AspNetCore.Authentication.JwtBearer
+2) Configure Program.cs
+
+
+1:40:09
