@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication.Pages
 {
+    [Authorize]
     public class ApiModel : PageModel
     {
         public ApiModel(IHttpClientFactory httpClientFactory)
