@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "..\Api\Api.csproj", "{C74D983D-7D59-48A7-B003-A9E32A2638FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "..\ConsoleApplication\ConsoleApplication.csproj", "{A1FC900D-9722-4C71-8038-9EEE7AF6320E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApplication", "..\ConsoleApplication\ConsoleApplication.csproj", "{A1FC900D-9722-4C71-8038-9EEE7AF6320E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "..\WebApplication\WebApplication.csproj", "{73FDF5D0-CD11-4926-9BC1-03CEB4112663}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "..\WebApplication\WebApplication.csproj", "{73FDF5D0-CD11-4926-9BC1-03CEB4112663}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinglePageApplication", "..\SinglePageApplication\Client\SinglePageApplication.csproj", "{76C7CA1D-D205-4FBD-844C-7AD74AD36F52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{73FDF5D0-CD11-4926-9BC1-03CEB4112663}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73FDF5D0-CD11-4926-9BC1-03CEB4112663}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73FDF5D0-CD11-4926-9BC1-03CEB4112663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76C7CA1D-D205-4FBD-844C-7AD74AD36F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76C7CA1D-D205-4FBD-844C-7AD74AD36F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76C7CA1D-D205-4FBD-844C-7AD74AD36F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76C7CA1D-D205-4FBD-844C-7AD74AD36F52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

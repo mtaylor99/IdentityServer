@@ -13,7 +13,7 @@ Console.WriteLine(discoveryDocumentResponse.TokenEndpoint);
 var tokenResponse = await identityServerHttpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
 {
     Address = discoveryDocumentResponse.TokenEndpoint,
-    ClientId = "bff7411d-668c-4f7f-8a6c-6c047deda847", //AUTHENTICATION__CLIENTID
+    ClientId = "28715e45-95bb-4f98-be2e-129acc9cd494", //AUTHENTICATION__CLIENTID
     ClientSecret = "secret", //AUTHENTICATION__CLIENTSECRET
     Scope = "https://localhost:5003/api"
 });

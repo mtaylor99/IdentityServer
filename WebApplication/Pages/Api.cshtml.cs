@@ -19,6 +19,8 @@ namespace WebApplication.Pages
         {
             using var httpClient = HttpClientFactory.CreateClient();
 
+            var token = await HttpContext.GetTokenAsync("access_token");
+
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await HttpContext.GetTokenAsync("access_token"));
 

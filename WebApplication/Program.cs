@@ -12,7 +12,7 @@ builder.Services.AddAuthentication(options =>
     .AddOpenIdConnect(options =>
     {
         options.Authority = "https://localhost:5001"; //AUTHENTICATION__AUTHORITY
-        options.ClientId = "009a2287-d4ec-46b9-a51d-349ec810fb9f"; //AUTHENTICATION__CLIENTID
+        options.ClientId = "63834211-1f90-4745-917c-25fba2f164ae"; //AUTHENTICATION__CLIENTID
         options.ClientSecret = "secret"; //AUTHENTICATION__CLIENTSECRET
         options.GetClaimsFromUserInfoEndpoint = true;
         options.ResponseType = "code";
