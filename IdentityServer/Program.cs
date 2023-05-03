@@ -137,10 +137,11 @@ if (app.Environment.IsDevelopment())
             RequireClientSecret = false,
             ClientName = "Single Page Application",
             AllowedGrantTypes = GrantTypes.Code,
-            AllowedScopes = new List<string> { "openid", "profile", "email", "https://localhost:5003/api" },
-            AllowedCorsOrigins = new List<string> { "https://localhost:3000", "https://localhost:7278" },
-            RedirectUris = new List<string> { "https://localhost:3000/authentication/login-callback", "https://localhost:7278/authentication/login-callback" },
-            PostLogoutRedirectUris = new List<string> { "https://localhost:3000/authentication/logout-callback", "https://localhost:7278/authentication/logout-callback" },
+            AllowedScopes = new List<string> { "openid", "profile", "email", "https://localhost:5003/api", "offline_access" },
+            AllowedCorsOrigins = new List<string> { "http://127.0.0.1:3000", "https://localhost:7278" },
+            RedirectUris = new List<string> { "http://127.0.0.1:3000/callback", "https://localhost:7278/authentication/login-callback" },
+            PostLogoutRedirectUris = new List<string> { "http://127.0.0.1:3000/logout-callback", "https://localhost:7278/authentication/logout-callback" },
+            AllowOfflineAccess = true
         }.ToEntity());
 
         await configurationDbContext.SaveChangesAsync();

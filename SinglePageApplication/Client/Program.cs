@@ -15,7 +15,7 @@ builder.Services.AddHttpClient("Api", httpClient =>
 builder.Services.AddOidcAuthentication(options =>
 {
     options.ProviderOptions.Authority = "https://localhost:5001"; //AUTHENTICATION__AUTHORITY
-    options.ProviderOptions.ClientId = "3049889f-7514-4e8d-8c70-e78123cea6cb"; //AUTHENTICATION__CLIENTID
+    options.ProviderOptions.ClientId = "9f35adbd-8db7-4a0f-aeec-ee22594e1a96"; //AUTHENTICATION__CLIENTID
     options.ProviderOptions.ResponseType = "code";
     options.ProviderOptions.DefaultScopes.Add("https://localhost:5003/api");
 });
