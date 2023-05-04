@@ -2,20 +2,21 @@ import { useState } from "react";
 import "./App.css";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import { AuthProvider, useAuth } from "oidc-react";
-// import { useNavigate } from "react-router-dom";
+import { AuthProvider } from "oidc-react";
+import { useNavigate } from "react-router-dom";
 import { getOidcConfig } from "./util/AuthUtil";
 import AppContext from "./AuthContext";
+import { IndexRoutes } from "./routing/IndexRoutes";
 
 function App() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [count, setCount] = useState(0);
 
   return (
     <AuthProvider
       {...getOidcConfig()}
       onSignIn={() => {
-        console.log("Signed In"); //navigate("/");
+        navigate("/");
       }}
     >
       <div>
@@ -38,6 +39,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <IndexRoutes />
       <AppContext />
     </AuthProvider>
   );
