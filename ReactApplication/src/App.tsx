@@ -1,7 +1,7 @@
 import { useTheme } from "@emotion/react";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { Button, IconButton } from "@mui/material";
+import { Button, IconButton, Theme } from "@mui/material";
 import { AuthProvider } from "oidc-react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +30,7 @@ export function App() {
         onClick={colorMode.toggleColorMode}
         color="inherit"
       >
-        {theme.palette.mode === "dark" ? (
+        {(theme as Theme).palette.mode === "dark" ? (
           <Brightness7Icon />
         ) : (
           <Brightness4Icon />

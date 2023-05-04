@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline, createTheme } from "@mui/material";
 import { deepmerge } from "@mui/utils";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import { App } from "./App";
 import { defaultTheme } from "./themes/defaultTheme";
 
 export const ColorModeContext = React.createContext({
