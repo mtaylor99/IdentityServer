@@ -1,11 +1,11 @@
-import "./App.css";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import { AuthProvider } from "oidc-react";
 import { useNavigate } from "react-router-dom";
+import "./App.css";
 import AppContext from "./AuthContext";
+import reactLogo from "./assets/react.svg";
 import { IndexRoutes } from "./routing/IndexRoutes";
-import { getOidcConfig } from "./util/AuthUtils";
+import { getOidcConfig } from "./util/authUtils";
+import viteLogo from "/vite.svg";
 
 function App() {
   const navigate = useNavigate();

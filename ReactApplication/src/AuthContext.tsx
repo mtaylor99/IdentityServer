@@ -1,5 +1,5 @@
 import { useAuth } from "oidc-react";
-import { getDecodedToken } from "./util/TokenUtils";
+import { getDecodedToken } from "./util/tokenUtils";
 
 function AppContext() {
   const authContext = useAuth();
