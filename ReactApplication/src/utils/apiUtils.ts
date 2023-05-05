@@ -1,4 +1,5 @@
-import { TransactionError } from "../types/TransactionResult";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { TransactionError } from "../types/transactionResult";
 
 const isTransactionError = (error: any) => {
   return (
