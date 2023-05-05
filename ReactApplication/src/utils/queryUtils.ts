@@ -68,6 +68,6 @@ export const getPaginatedQuery = (
   const queryParamsStr = getUrlSearchParamFromQueryData(queryData);
 
   return `${
-    process.env.REACT_APP_API_URL
+    import.meta.env.REACT_APP_API_URL
   }${mainUrl}${queryParamsStr.toString()}`;
 };

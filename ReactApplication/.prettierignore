@@ -1,0 +1,6 @@
+public
+node_modules
+.vscode
+
+src/assets
+package-lock*

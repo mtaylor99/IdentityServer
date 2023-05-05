@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IWeatherForecast } from "../types/weatherForecastTypes";
-import { customPrepareHeaders } from "../utils/QueryUtils";
 import { QueryTags } from "./queryTags";
+import { customPrepareHeaders } from "../utils/queryUtils";
 
-const baseUrl = `${process.env.REACT_APP_API_URL}`;
+const baseUrl = `${import.meta.env.REACT_APP_API_URL}`;
 
 const baseQuery = fetchBaseQuery({
   baseUrl,
