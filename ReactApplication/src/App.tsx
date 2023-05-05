@@ -10,7 +10,7 @@ import { ColorModeContext } from "./AppWrapper";
 import { AppContext } from "./AuthContext";
 import reactLogo from "./assets/react.svg";
 import { IndexRoutes } from "./routing/IndexRoutes";
-import { getOidcConfig } from "./util/authUtils";
+import { getOidcConfig } from "./utils/authUtils";
 import viteLogo from "/vite.svg";
 
 export function App() {

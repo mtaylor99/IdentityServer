@@ -1,3 +1,2 @@
-Redux
-RTK Query
 Mock IDP
+Testing
