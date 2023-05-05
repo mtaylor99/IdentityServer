@@ -6,8 +6,10 @@ import { SetupWorkerApi } from "msw";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
-import { defaultTheme } from "./themes/defaultTheme";
 import { worker } from "./mocks/browser";
+import { defaultTheme } from "./themes/defaultTheme";
+import { store } from "./state/store";
+import { Provider } from 'react-redux';
 
 export const ColorModeContext = React.createContext({
   toggleColorMode: () => {},
@@ -74,14 +76,16 @@ export function AppWrapper() {
     <>
       {!isPreparing && (
         <React.StrictMode>
-          <ColorModeContext.Provider value={colorMode}>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <BrowserRouter>
-                <App />
-              </BrowserRouter>
-            </ThemeProvider>
-          </ColorModeContext.Provider>
+          <Provider store={store}>
+            <ColorModeContext.Provider value={colorMode}>
+              <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <BrowserRouter>
+                  <App />
+                </BrowserRouter>
+              </ThemeProvider>
+            </ColorModeContext.Provider>
+          </Provider>
         </React.StrictMode>
       )}
     </>
