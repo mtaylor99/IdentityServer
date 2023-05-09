@@ -3,8 +3,8 @@ describe('Login', function () {
     cy.visit(Cypress.env('app_url'))
 
     cy.loginToAuth0(
-      Cypress.env('auth0_username'),
-      Cypress.env('auth0_password')
+      Cypress.env('idp_username'),
+      Cypress.env('idp_password')
     )
   })
 

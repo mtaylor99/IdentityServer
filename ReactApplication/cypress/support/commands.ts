@@ -39,7 +39,7 @@
 function loginViaAuth0Ui(username: string, password: string) {
   // Login on Auth0.
   cy.origin(
-    Cypress.env('auth0_domain'),
+    Cypress.env('idp_domain'),
     { args: { username, password } },
     ({ username, password }) => {
       cy.get('input[name="Input.Username"]').type(username);
