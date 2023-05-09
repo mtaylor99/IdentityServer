@@ -11,8 +11,4 @@ describe('Login', function () {
   it('can log into application', function () {
     cy.contains('Vite + React').should('be.visible')
   })
-
-  it('can log into application', function () {
-    cy.contains('Vite + React').should('be.visible')
-  })
 })
