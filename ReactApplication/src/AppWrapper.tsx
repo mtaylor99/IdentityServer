@@ -17,34 +17,24 @@ export const ColorModeContext = React.createContext({
 
 export function AppWrapper() {
   const [isPreparing, setIsPreparing] = useState<boolean>(true);
-  const isMock = import.meta.env.VITE_APP_IS_STRICT_MOCKS === "yes";
-
-  const prepare = async () => {
-    if (isMock) {
-      setIsPreparing(false);
+  
+  const prepare = () => {
+    if (import.meta.env.VITE_APP_IS_STRICT_MOCKS === 'yes') {
+      console.log(import.meta.env.VITE_APP_IS_STRICT_MOCKS);
       console.info(
-        "************************ SETTING UP MOCKS ************************"
+        '************************ USING MOCKS ************************'
       );
-      await setupMSW();
-      console.info(
-        "************************ FINISHED MOCKS SETUP ************************"
-      );
+      (worker as SetupWorkerApi).start().then(() => {
+        setIsPreparing(false);
+      });
     } else {
       setIsPreparing(false);
     }
   };
 
-  const setupMSW = async () => {
-    await (worker as SetupWorkerApi).start();
-    console.info("MSW Started");
-  };
 
   useEffect(() => {
-    const prepareApp = async () => {
-      await prepare();
-    };
-    prepareApp();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    prepare();
   }, []);
 
   const [mode, setMode] = React.useState<"light" | "dark">("light");

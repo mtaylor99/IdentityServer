@@ -1,17 +1,32 @@
-import { Action, ThunkAction, configureStore } from "@reduxjs/toolkit";
-import { applicationReducer } from "./slices/applicationSlice";
-import { weatherForecastApi } from "../api/weatherForecaseApi";
-import { setupListeners } from "@reduxjs/toolkit/dist/query";
+import {
+  Action,
+  AnyAction,
+  Reducer,
+  ThunkAction,
+  configureStore,
+} from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/dist/query';
+import { weatherForecastApi } from '../api/weatherForecaseApi';
+import {
+  ApplicationState,
+  applicationReducer,
+} from './slices/applicationSlice';
+
+export interface IReducer {
+  application: Reducer<ApplicationState, AnyAction>;
+}
+
+export const reducer = {
+  application: applicationReducer,
+} as IReducer;
 
 export const store = configureStore({
   reducer: {
-    application: applicationReducer,
+    ...reducer,
     [weatherForecastApi.reducerPath]: weatherForecastApi.reducer,
   },
-    middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({}).concat([
-      weatherForecastApi.middleware,
-    ]),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({}).concat([weatherForecastApi.middleware]),
 });
 
 setupListeners(store.dispatch);
