@@ -1,4 +1,4 @@
-/* eslint-disable no-restricted-imports */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ThemeProvider } from '@mui/material';
 import { configureStore, EnhancedStore } from '@reduxjs/toolkit';
 import { RenderOptions, render as rtlRender } from '@testing-library/react';
@@ -39,11 +39,12 @@ function render(
     ...renderOptions
   } = {} as RenderProps
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function Wrapper({ children }: { children: ReactElement }) {
     return (
       <Provider store={store}>
         <ThemeProvider theme={defaultTheme}>
-          <BrowserRouter></BrowserRouter>
+          <BrowserRouter />
         </ThemeProvider>
       </Provider>
     );
