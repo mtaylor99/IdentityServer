@@ -4,13 +4,13 @@ import { store } from '../state/store';
 import { decrementNotifications, incrementNotifications } from '../state/slices/applicationSlice';
 
 describe('With React Testing Library', () => {
-  // test('Application Notifications loaded into state', async () => {
-  //   const applicationState = initialMockState.application;
+  test('Application Notifications loaded into state', async () => {
+    const applicationState = store.getState().application;
 
-  //   const initialNotificationsCount = applicationState.notifications;
+    const initialNotificationsCount = applicationState.notifications;
 
-  //   expect(initialNotificationsCount).toEqual(undefined);
-  // });
+    expect(initialNotificationsCount).toEqual(0);
+  });
 
   test('Application Notifications Incremented', async () => {
     let applicationState = store.getState().application;
