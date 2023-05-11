@@ -1,6 +1,5 @@
 import { describe, expect, test } from 'vitest';
 import { store } from '../state/store';
-//import { initialMockState } from '../utils/testUtil';
 import { decrementNotifications, incrementNotifications } from '../state/slices/applicationSlice';
 
 describe('With React Testing Library', () => {
