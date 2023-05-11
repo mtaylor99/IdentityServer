@@ -18,6 +18,8 @@ Test Tools
   Vitest https://vitest.dev/
   Cypress https://docs.cypress.io/guides/overview/why-cypress
   Mock Service Worker https://mswjs.io/docs/
+  ViTest UI - https://vitest.dev/guide/ui.html
+  Code Coverage
 
 UI Components
   Material UI including Themeing https://mui.com/
