@@ -10,7 +10,7 @@ import { App } from './App';
 import { worker } from './mocks/browser';
 import { store } from './state/store';
 import { defaultTheme } from './themes/defaultTheme';
-import { mockTokenData } from './utils/tokenUtils';
+import { getMockDecodedToken } from './utils/tokenUtils';
 
 export const ColorModeContext = React.createContext({
   toggleColorMode: () => {},
@@ -34,8 +34,10 @@ export function AppWrapper() {
       '************ SETTING SESSION STORAGE TOKEN COOKIE *************'
     );
     sessionStorage.setItem(
-      'oidc.user:https://localhost:5001:9f35adbd-8db7-4a0f-aeec-ee22594e1a96',
-      JSON.stringify(mockTokenData)
+      `oidc.user:${import.meta.env.VITE_APP_IDP_URL}:${
+        import.meta.env.VITE_APP_IDP_CLIENT_ID
+      }`,
+      JSON.stringify(getMockDecodedToken())
     );
   };
 
