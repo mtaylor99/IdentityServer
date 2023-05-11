@@ -1,9 +1,10 @@
 import { describe, expect, test } from 'vitest';
-import { store } from '../state/store';
 import { decrementNotifications, incrementNotifications } from '../state/slices/applicationSlice';
+import { configureReduxStore } from '../state/store';
 
 describe('With React Testing Library', () => {
   test('Application Notifications loaded into state', async () => {
+    const store = configureReduxStore();
     const applicationState = store.getState().application;
 
     const initialNotificationsCount = applicationState.notifications;
@@ -12,6 +13,7 @@ describe('With React Testing Library', () => {
   });
 
   test('Application Notifications Incremented', async () => {
+    const store = configureReduxStore();
     let applicationState = store.getState().application;
 
     const initialNotificationsCount = applicationState.notifications;
@@ -29,6 +31,7 @@ describe('With React Testing Library', () => {
   });
 
   test('Application Notifications Decremented', async () => {
+    const store = configureReduxStore();
     let applicationState = store.getState().application;
 
     await store.dispatch(decrementNotifications());

@@ -26,6 +26,7 @@
     "date-fns": "^2.30.0",
     "jwt-decode": "^3.1.2",
     "notistack": "^3.0.1",
+    "oidc-client": "^1.11.5",
     "oidc-react": "^3.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

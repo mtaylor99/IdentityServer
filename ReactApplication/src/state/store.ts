@@ -20,14 +20,18 @@ export const reducer = {
   application: applicationReducer,
 } as IReducer;
 
-export const store = configureStore({
-  reducer: {
-    ...reducer,
-    [weatherForecastApi.reducerPath]: weatherForecastApi.reducer,
-  },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({}).concat([weatherForecastApi.middleware]),
-});
+export const configureReduxStore = () => {
+  return configureStore({
+    reducer: {
+      ...reducer,
+      [weatherForecastApi.reducerPath]: weatherForecastApi.reducer,
+    },
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({}).concat([weatherForecastApi.middleware]),
+  });
+};
+
+export const store = configureReduxStore();
 
 setupListeners(store.dispatch);
 
