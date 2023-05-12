@@ -39,12 +39,13 @@ function render(
     ...renderOptions
   } = {} as RenderProps
 ) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  
   function Wrapper({ children }: { children: ReactElement }) {
     return (
       <Provider store={store}>
         <ThemeProvider theme={defaultTheme}>
           <BrowserRouter />
+          {children}
         </ThemeProvider>
       </Provider>
     );

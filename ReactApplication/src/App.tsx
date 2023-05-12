@@ -12,7 +12,7 @@ import reactLogo from "./assets/react.svg";
 import { IndexRoutes } from "./routing/IndexRoutes";
 import { getOidcConfig } from "./utils/authUtils";
 import viteLogo from "/vite.svg";
-import { installMuiLicense } from "./utils/MuiLicenseKeyInstallation";
+import { installMuiLicense } from "./utils/muiLicenseKeyInstallation";
 
 installMuiLicense();
 

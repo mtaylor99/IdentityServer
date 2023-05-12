@@ -137,6 +137,7 @@ _TeamCity*
 
 __snapshots__/
 coverage/
+dist/
 
 # DotCover is a Code Coverage Tool
 *.dotCover
