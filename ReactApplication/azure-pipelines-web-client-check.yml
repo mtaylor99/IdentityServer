@@ -1,0 +1,40 @@
+trigger:
+- none
+
+pool:
+  vmimage: 'windows-latest'
+
+name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
+stages:
+  - stage: CheckBuild
+    displayName: Check Build
+    jobs:
+      - job: BuildWebClient
+        displayName: 'Build Web Client App'
+        steps:
+          - checkout: self
+            clean: true
+            displayName: Checkout Web Client App
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '18.16.0'
+            displayName: Install Node.js
+
+          - task: Npm@1
+            displayName: npm ci
+            inputs:
+              command: ci
+
+          - script: npm run lint
+            displayName: 'npm lint'
+
+          - script: npm run test
+            displayName: 'npm run test'
+
+          - task: Npm@1
+            displayName: npm run build
+            inputs:
+              command: custom
+              customCommand: npm run build

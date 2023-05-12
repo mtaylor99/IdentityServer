@@ -5,7 +5,6 @@ import { Button, IconButton, Theme } from "@mui/material";
 import { AuthProvider } from "oidc-react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import "./App.css";
 import { ColorModeContext } from "./AppWrapper";
 import { AppContext } from "./AuthContext";
 import reactLogo from "./assets/react.svg";
