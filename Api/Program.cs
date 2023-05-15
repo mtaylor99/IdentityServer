@@ -1,3 +1,4 @@
+using Api.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.OpenApi.Models;
@@ -75,6 +76,8 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+builder.Services.AddCoreServices(builder);
 
 var app = builder.Build();
 
