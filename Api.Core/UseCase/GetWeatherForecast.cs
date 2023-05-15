@@ -1,17 +1,14 @@
 ﻿using MediatR;
-using Api.Core.Data;
 using Api.Core.Data.Repository.Interfaces;
 
 namespace Api.Core.UseCase;
 
-internal class GetWeatherForecast : IRequestHandler<GetWeatherForecastRequest, GetWeatherForecastResponse>
+public class GetWeatherForecast : IRequestHandler<GetWeatherForecastRequest, GetWeatherForecastResponse>
 {
-    private readonly IDbConnectionWrapper _connection;
     private readonly IApplicationRepository _applicationRepository;
 
-    public GetWeatherForecast(IDbConnectionWrapper connection, IApplicationRepository applicationRepository)
+    public GetWeatherForecast(IApplicationRepository applicationRepository)
     {
-        _connection = connection;
         _applicationRepository = applicationRepository;
     }
 
