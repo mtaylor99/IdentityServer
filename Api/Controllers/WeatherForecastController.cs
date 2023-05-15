@@ -1,3 +1,5 @@
+using Api.UseCase;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,10 +16,12 @@ namespace Api.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ISender _mediator;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ISender mediator)
         {
             _logger = logger;
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -30,6 +34,13 @@ namespace Api.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("WeatherForecast")]
+        public async Task<IActionResult> WeatherForecast([FromQuery] GetWeatherForecastRequest request, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(request, cancellationToken);
+            return Ok(result);
         }
     }
 }
