@@ -1,8 +1,9 @@
-﻿using Api.Data.Repository.Extensions;
-using Api.Data.Repository.Interfaces;
-using Api.Data.StoredProcedureResults;
+﻿using Microsoft.Extensions.Logging;
+using Api.Core.Data.Repository.Extensions;
+using Api.Core.Data.Repository.Interfaces;
+using Api.Core.Data.StoredProcedureResults;
 
-namespace Api.Data.Repository;
+namespace Api.Core.Data.Repository;
 
 public class ApplicationRepository : IApplicationRepository
 {

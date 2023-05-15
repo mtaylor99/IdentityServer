@@ -1,7 +1,7 @@
-using Api.UseCase;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Api.Core.UseCase;
 
 namespace Api.Controllers
 {

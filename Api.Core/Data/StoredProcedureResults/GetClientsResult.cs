@@ -1,4 +1,4 @@
-﻿namespace Api.Data.StoredProcedureResults;
+﻿namespace Api.Core.Data.StoredProcedureResults;
 
 public class GetClientsResult
 {

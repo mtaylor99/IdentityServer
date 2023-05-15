@@ -1,4 +1,4 @@
-﻿namespace Api.Data.Repository.Exceptions;
+﻿namespace Api.Core.Data.Repository.Exceptions;
 
 internal class StoredProcedureCallFailedException : Exception
 {

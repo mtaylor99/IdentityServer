@@ -1,6 +1,5 @@
-using Api.Extensions;
+using Api.Core.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -40,7 +39,8 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "API", Version = "v1"
+        Title = "API",
+        Version = "v1"
     });
 
     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -51,7 +51,7 @@ builder.Services.AddSwaggerGen(options =>
             ClientCredentials = new OpenApiOAuthFlow
             {
                 TokenUrl = new Uri($"{builder.Configuration["Authentication:Authority"]}/connect/token"),
-                Scopes = { { "https://localhost:5003/api" , "API" } }
+                Scopes = { { "https://localhost:5003/api", "API" } }
             }
         }
     });
@@ -74,8 +74,6 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 builder.Services.AddCoreServices(builder);
 

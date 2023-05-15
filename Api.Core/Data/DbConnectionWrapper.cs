@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using Dapper;
 
-namespace Api.Data;
+namespace Api.Core.Data;
 
 public class DbConnectionWrapper : IDbConnectionWrapper
 {

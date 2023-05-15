@@ -1,6 +1,6 @@
 ﻿using Dapper;
 
-namespace Api.Data;
+namespace Api.Core.Data;
 
 public interface IDbConnectionWrapper
 {

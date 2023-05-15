@@ -1,10 +1,14 @@
 ﻿using System.Data;
-using Api.Data;
-using Api.Data.Repository.Interfaces;
-using Api.Data.Repository;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Builder;
+using Api.Core.Data;
+using Api.Core.Data.Repository;
+using Api.Core.Data.Repository.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
-namespace Api.Extensions;
+namespace Api.Core.Extensions;
 
 public static class ServiceCollectionExtensions
 {
@@ -15,6 +19,8 @@ public static class ServiceCollectionExtensions
                                    "The DB_CONNSTRING configuration value has not been specified");
         services.AddScoped<IDbConnection>(e => new SqlConnection(connectionString));
         services.AddScoped<IDbConnectionWrapper, DbConnectionWrapper>();
+
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
         services.AddScoped<IApplicationRepository, ApplicationRepository>();
     }

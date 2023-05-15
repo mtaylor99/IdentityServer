@@ -1,8 +1,8 @@
-﻿using Api.Data;
-using Api.Data.Repository.Interfaces;
-using MediatR;
+﻿using MediatR;
+using Api.Core.Data;
+using Api.Core.Data.Repository.Interfaces;
 
-namespace Api.UseCase;
+namespace Api.Core.UseCase;
 
 internal class GetWeatherForecast : IRequestHandler<GetWeatherForecastRequest, GetWeatherForecastResponse>
 {

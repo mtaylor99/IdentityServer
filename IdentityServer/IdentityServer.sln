@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "..\WebApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SinglePageApplication", "..\SinglePageApplication\Client\SinglePageApplication.csproj", "{76C7CA1D-D205-4FBD-844C-7AD74AD36F52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Core", "..\Api.Core\Api.Core.csproj", "{B11C7E34-A114-4AAE-B9B0-2BFD70E4F215}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Core", "..\Api.Core\Api.Core.csproj", "{B11C7E34-A114-4AAE-B9B0-2BFD70E4F215}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Tests", "..\Api.Tests\Api.Tests.csproj", "{32A0CDB7-B5BA-4F60-8426-6E1A85A74E78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Tests", "..\Api.Tests\Api.Tests.csproj", "{32A0CDB7-B5BA-4F60-8426-6E1A85A74E78}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "..\Database\Database.sqlproj", "{4D9198DB-64D3-4818-BC6A-78A9D7DC878F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,12 @@ Global
 		{32A0CDB7-B5BA-4F60-8426-6E1A85A74E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32A0CDB7-B5BA-4F60-8426-6E1A85A74E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32A0CDB7-B5BA-4F60-8426-6E1A85A74E78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9198DB-64D3-4818-BC6A-78A9D7DC878F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9198DB-64D3-4818-BC6A-78A9D7DC878F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9198DB-64D3-4818-BC6A-78A9D7DC878F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4D9198DB-64D3-4818-BC6A-78A9D7DC878F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9198DB-64D3-4818-BC6A-78A9D7DC878F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9198DB-64D3-4818-BC6A-78A9D7DC878F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

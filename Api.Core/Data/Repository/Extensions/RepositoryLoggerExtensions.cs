@@ -1,6 +1,7 @@
-﻿using Api.Data.Repository.Exceptions;
+﻿using Microsoft.Extensions.Logging;
+using Api.Core.Data.Repository.Exceptions;
 
-namespace Api.Data.Repository.Extensions;
+namespace Api.Core.Data.Repository.Extensions;
 
 internal static class RepositoryLoggerExtensions
 {
