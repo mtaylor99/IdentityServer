@@ -1,6 +1,5 @@
-﻿using Xunit;
+﻿using Api.Core.Exceptions;
 using AutoFixture;
-using Api.Core.Data.Repository.Extensions;
 
 namespace Api.Tests;
 
