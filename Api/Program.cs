@@ -1,7 +1,11 @@
 using Api.Core.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
+using Newtonsoft.Json;
+using Api.Helpers;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,15 +28,43 @@ builder.Services.AddAuthorization(options =>
     });
 });
 
-builder.Services.AddControllers();
+//ORIGINAL - builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =>
+        options.InvalidModelStateResponseFactory = ValidationResponseFormatter.FormatValidationErrors
+    )
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+    });
+
+builder.Services.AddHttpContextAccessor();
+
+var coreAssembly = AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(x => x.GetName().Name == "HE.Remediation.WebServer.Core");
+builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssembly(coreAssembly);
+
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders =
+        ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+});
 
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
-        {
-            policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-        });
+    {
+        var domains = builder.Configuration["Cors:AllowedDomains"];
+
+        //ORIGINAL - policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        policy
+            .WithOrigins(domains.Split(','))
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
 });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -85,8 +117,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+else
+{
+    app.UseForwardedHeaders();
+    app.UseHsts();
+}
 
 app.UseHttpsRedirection();
+
+app.UseExceptionHandler("/Error");
 
 app.UseCors();
 
