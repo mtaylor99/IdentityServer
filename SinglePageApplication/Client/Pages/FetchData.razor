@@ -46,7 +46,15 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _forecasts = await HttpClientFactory.CreateClient("Api").GetFromJsonAsync<WeatherForecast[]>("/WeatherForecast");
+        try
+        {
+            _forecasts = await HttpClientFactory.CreateClient("Api").GetFromJsonAsync<WeatherForecast[]>("/WeatherForecast");
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+
     }
 
     public class WeatherForecast

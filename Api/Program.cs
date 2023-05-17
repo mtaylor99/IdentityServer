@@ -28,7 +28,6 @@ builder.Services.AddAuthorization(options =>
     });
 });
 
-//ORIGINAL - builder.Services.AddControllers();
 builder.Services.AddControllers()
     .ConfigureApiBehaviorOptions(options =>
         options.InvalidModelStateResponseFactory = ValidationResponseFormatter.FormatValidationErrors
@@ -40,7 +39,7 @@ builder.Services.AddControllers()
 
 builder.Services.AddHttpContextAccessor();
 
-var coreAssembly = AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(x => x.GetName().Name == "HE.Remediation.WebServer.Core");
+var coreAssembly = AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(x => x.GetName().Name == "Api.Core");
 builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssembly(coreAssembly);
 
@@ -56,7 +55,6 @@ builder.Services.AddCors(options =>
     {
         var domains = builder.Configuration["Cors:AllowedDomains"];
 
-        //ORIGINAL - policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
         policy
             .WithOrigins(domains.Split(','))
             .AllowAnyHeader()
