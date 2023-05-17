@@ -5,8 +5,8 @@ import { RenderOptions, render as rtlRender } from '@testing-library/react';
 import React, { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
-import { ApplicationState } from '../state/slices/applicationSlice';
-import { AppState, reducer } from '../state/store';
+import { ApplicationState } from '../../state/slices/applicationSlice';
+import { AppState, reducer } from '../../state/store';
 import { defaultTheme } from '../themes/defaultTheme';
 
 export type IMockState = AppState;
@@ -39,7 +39,6 @@ function render(
     ...renderOptions
   } = {} as RenderProps
 ) {
-  
   function Wrapper({ children }: { children: ReactElement }) {
     return (
       <Provider store={store}>

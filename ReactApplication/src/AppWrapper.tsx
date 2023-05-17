@@ -7,10 +7,10 @@ import React, { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
+import { defaultTheme } from './common/themes/defaultTheme';
+import { getMockDecodedToken } from './common/utils/tokenUtils';
 import { worker } from './mocks/browser';
 import { store } from './state/store';
-import { defaultTheme } from './themes/defaultTheme';
-import { getMockDecodedToken } from './utils/tokenUtils';
 
 export const ColorModeContext = React.createContext({
   toggleColorMode: () => {},

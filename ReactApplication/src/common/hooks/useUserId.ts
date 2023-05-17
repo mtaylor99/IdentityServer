@@ -1,5 +1,5 @@
-import { IDecodedAccessToken } from "../types/decodedToken";
-import { useDecodedAccessToken } from "./useDecodedAccessToken";
+import { IDecodedAccessToken } from '../types/decodedToken';
+import { useDecodedAccessToken } from './useDecodedAccessToken';
 
 export const useUserId = () => {
   const { decodedAccessToken } = useDecodedAccessToken();

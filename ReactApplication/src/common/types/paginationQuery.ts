@@ -1,4 +1,4 @@
-import { ESortDirection } from "../enums/ESortDirection";
+import { ESortDirection } from '../enums/ESortDirection';
 
 export interface IPaginationQuery {
   skip: number;

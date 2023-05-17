@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { TransactionError } from "../types/transactionResult";
+import { TransactionError } from '../types/transactionResult';
 
 const isTransactionError = (error: any) => {
   return (
@@ -23,8 +23,8 @@ export const extractErrorMessages = (error: any) => {
 
     if (transactionError.propertyErrors?.length > 0) {
       return transactionError.propertyErrors
-        .map((propertyError) => propertyError.errorMessage)
-        .join("; ");
+        .map(propertyError => propertyError.errorMessage)
+        .join('; ');
     }
   }
 
@@ -32,5 +32,5 @@ export const extractErrorMessages = (error: any) => {
     return `Received status: ${error.status}`;
   }
 
-  return "Could not extract error details";
+  return 'Could not extract error details';
 };

@@ -1,17 +1,17 @@
-import { useTheme } from "@emotion/react";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { Button, IconButton, Theme } from "@mui/material";
-import { AuthProvider } from "oidc-react";
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { ColorModeContext } from "./AppWrapper";
-import { AppContext } from "./AuthContext";
-import reactLogo from "./assets/react.svg";
-import { IndexRoutes } from "./routing/IndexRoutes";
-import { getOidcConfig } from "./utils/authUtils";
-import viteLogo from "/vite.svg";
-import { installMuiLicense } from "./utils/muiLicenseKeyInstallation";
+import { useTheme } from '@emotion/react';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { Button, IconButton, Theme } from '@mui/material';
+import { AuthProvider } from 'oidc-react';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ColorModeContext } from './AppWrapper';
+import { AppContext } from './AuthContext';
+import reactLogo from './assets/react.svg';
+import { getOidcConfig } from './common/utils/authUtils';
+import { installMuiLicense } from './common/utils/muiLicenseKeyInstallation';
+import { IndexRoutes } from './routing/IndexRoutes';
+import viteLogo from '/vite.svg';
 
 installMuiLicense();
 
@@ -24,7 +24,7 @@ export function App() {
     <AuthProvider
       {...getOidcConfig()}
       onSignIn={() => {
-        navigate("/");
+        navigate('/');
       }}
     >
       <IconButton
@@ -32,7 +32,7 @@ export function App() {
         onClick={colorMode.toggleColorMode}
         color="inherit"
       >
-        {(theme as Theme).palette.mode === "dark" ? (
+        {(theme as Theme).palette.mode === 'dark' ? (
           <Brightness7Icon />
         ) : (
           <Brightness4Icon />
