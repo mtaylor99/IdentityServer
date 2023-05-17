@@ -1,5 +1,4 @@
 ﻿using Moq;
-using Xunit;
 using Api.Core.Data.Repository.Interfaces;
 using Api.Core.Data.StoredProcedureResults;
 using Api.Core.UseCase;

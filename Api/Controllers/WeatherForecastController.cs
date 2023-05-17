@@ -25,6 +25,7 @@ namespace Api.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
+        //[PermissionAuthorize(Permissions.Administration.Users)]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -37,6 +38,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("WeatherForecast")]
+        //[PermissionAuthorize(Permissions.Administration.Users)]
         public async Task<IActionResult> WeatherForecast([FromQuery] GetWeatherForecastRequest request, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(request, cancellationToken);
